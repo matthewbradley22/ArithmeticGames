@@ -1,0 +1,10 @@
+.inputs{
+    width: 300px;
+}
+
+.decisionPanel{
+  display: flex;
+  flex-direction: column;
+   padding: 2px;
+   align-items: center;
+}
