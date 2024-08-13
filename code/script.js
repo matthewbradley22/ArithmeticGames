@@ -1,15 +1,26 @@
 let question = document.getElementById('Question');
 let answer = document.getElementById('answer');
 const skip = document.getElementById("SkipButton");
-const submit = document.getElementById("SubmitButton");
 const start = document.getElementById("StartButton")
 
 let numList = [1,1];
 question.innerHTML =  "1 + 1";
 
 let totRight = document.getElementById("score")
+
 let counter = 0
 totRight.innerHTML = `Score: ${counter}`
+
+
+answer.onkeyup = function(){
+  if(answer.value == numList[0] + numList[1]){
+    const nums = makeNumbers()
+    question.innerHTML =  `${nums[0]} + ${nums[1]}`;
+    answer.value = ""
+    counter ++
+    totRight.innerHTML = `Score: ${counter}`
+  }
+}
 
 
 function makeNumbers(){
@@ -26,17 +37,9 @@ function makeNumbers(){
 skip.onclick = function(){
   const nums = makeNumbers()
   question.innerHTML =  `${nums[0]} + ${nums[1]}`;
-  answer.value = ""
-}
-
-submit.onclick = function(){
-  if(answer.value == numList[0] + numList[1]){
-    const nums = makeNumbers()
-    question.innerHTML =  `${nums[0]} + ${nums[1]}`;
-    answer.value = ""
-    counter = counter + 1
+  counter --
     totRight.innerHTML = `Score: ${counter}`
-  }
+  answer.value = ""
 }
 
 start.onclick = function(){
