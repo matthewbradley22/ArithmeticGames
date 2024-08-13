@@ -2,7 +2,6 @@ let question = document.getElementById('Question');
 let answer = document.getElementById('answer');
 const skip = document.getElementById("SkipButton");
 const submit = document.getElementById("SubmitButton");
-const correct = document.getElementById("yesOrNo");
 const start = document.getElementById("StartButton")
 
 let numList = [1,1];
@@ -32,21 +31,30 @@ skip.onclick = function(){
 
 submit.onclick = function(){
   if(answer.value == numList[0] + numList[1]){
-    correct.innerHTML = "Correct";
-    document.getElementById("feedback").style.backgroundColor = "green"
     const nums = makeNumbers()
     question.innerHTML =  `${nums[0]} + ${nums[1]}`;
     answer.value = ""
     counter = counter + 1
     totRight.innerHTML = `Score: ${counter}`
-  }else{
-    correct.innerHTML = "Incorrect";
-    document.getElementById("feedback").style.backgroundColor = "red"
   }
 }
 
 start.onclick = function(){
   let min = 2;
   let sec = 0;
+  setInterval(function(){
+    let time = document.getElementById("time")
+    time.innerHTML = `${min}:${sec}`
+    if(min == 0 && sec == 0){
+      time.innerHTML = `Game over`
+    }
+    else if(sec == 0){
+      min--
+      sec = 59
+    }
+    else{
+      sec--
+    }
+  }, 1000)
 
 }

@@ -20,11 +20,6 @@ body{
   flex: 1 auto;
 }
 
-#feedback{
-  border: 3px solid;
-  width: 100px;
-} 
-
 #Question{
   font-size: 40px;
 }
