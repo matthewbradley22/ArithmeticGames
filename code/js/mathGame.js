@@ -97,7 +97,13 @@ start.onclick = function () {
   let sec = 0;
   setInterval(function () {
     let time = document.getElementById("time")
-    time.innerHTML = `${min}:${sec}`
+    if(sec > 9){
+      time.innerHTML = `${min}:${sec}`
+    }else if(sec > 0){
+      time.innerHTML = `${min}:0${sec}`
+    }else{
+       time.innerHTML = `${min}:${sec}0`
+    }
     if (min == 0 && sec == 0) {
       time.innerHTML = `Game over`
     }

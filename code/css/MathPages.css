@@ -3,17 +3,27 @@ body{
 }
 
 header{
+  display: flex;
   border-bottom: 5px solid;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
 }
 
 .game{
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 200px;
   font-weight: bold;
   text-align: center; 
   align-items: center;
+}
+
+.game > * {
+  flex: 1 auto;
 }
 
 .score{
@@ -21,9 +31,7 @@ header{
   gap: 10px;
 }
 
-.game > * {
-  flex: 1 auto;
-}
+
 
 #Question{
   font-size: 40px;
