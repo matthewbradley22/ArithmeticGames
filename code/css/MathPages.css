@@ -2,6 +2,11 @@ body{
   background-color: #91C3EA;
 }
 
+header{
+  border-bottom: 5px solid;
+  text-align: center;
+}
+
 .game{
   display: flex;
   flex-direction: column;
