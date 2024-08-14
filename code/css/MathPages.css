@@ -41,3 +41,8 @@ ul {
 #Question {
   font-size: 40px;
 }
+
+.minsMaxes{
+  position: absolute;
+  left: 20%;
+}
