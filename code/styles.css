@@ -2,6 +2,11 @@ body {
   background-color: #91C3EA;
 }
 
+main{
+  display: flex;
+  justify-content: center;
+}
+
 header {
   border-bottom: 5px solid;
   text-align: center;
@@ -10,7 +15,7 @@ header {
 section {
   display: flex;
   flex-direction: column;
-  padding: 2px;
+  padding: 8px 4px 8px 4px;
   align-items: center;
   border: solid;
   margin: 5px;
@@ -21,4 +26,9 @@ section {
 
 .inputs {
   width: 300px;
+  margin: 10px;
+}
+
+.maxNum{
+  padding: 4px 0px 0px 0px;
 }
