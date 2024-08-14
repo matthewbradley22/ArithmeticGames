@@ -93,7 +93,8 @@ function multiplesOf(factor, max) {
   return allFactors
 }
 function makeNumbersDivision() {
-  const divisor = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+  //Max val/2 to prevent a lot of high numbers over themselves
+  const divisor = Math.floor(Math.random() * (Math.floor(maxVal/2) - minVal + 1)) + minVal;
   const multipliers = multiplesOf(divisor, maxVal)
   const randomMultiplier = multipliers[Math.floor(Math.random() * multipliers.length)];
   const numerator = divisor * randomMultiplier

@@ -45,4 +45,7 @@ ul {
 .minsMaxes{
   position: absolute;
   left: 20%;
+  top: 20%;
+  border: solid 3px;
+  padding: 5px;
 }
