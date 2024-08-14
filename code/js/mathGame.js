@@ -6,8 +6,8 @@ var radios = document.getElementsByName('math');
 
 //This is from the script js file that takes the radio buttons as input
 const gameType = (sessionStorage.getItem("mathChoice"));
-const minVal = (sessionStorage.getItem("minVal"));
-const maxVal = (sessionStorage.getItem("maxVal"));
+const minVal = Number((sessionStorage.getItem("minVal")));
+const maxVal = Number((sessionStorage.getItem("maxVal")));
 
 document.getElementById("min").innerHTML = `Minimum: ${minVal}`;
 document.getElementById("max").innerHTML = `Maximum: ${maxVal}`;
@@ -79,11 +79,8 @@ answer.onkeyup = function () {
 }
 
 function makeNumbers() {
-  const options = [10, 100, 1000];
-  const multiplier1 = Math.floor(Math.random() * options.length);
-  const multiplier2 = Math.floor(Math.random() * options.length);
-  const num1 = Math.floor(Math.random() * options[multiplier1]);
-  const num2 = Math.floor(Math.random() * options[multiplier2]);
+  const num1 = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+  const num2 = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
   const numArray = [num1, num2]
   numList = numArray
   return numArray
@@ -96,10 +93,8 @@ function multiplesOf(factor, max) {
   return allFactors
 }
 function makeNumbersDivision() {
-  const options = [10, 100]
-  const multiplier1 = Math.floor(Math.random() * options.length);
-  const divisor = Math.floor(Math.random() * options[multiplier1]);
-  const multipliers = multiplesOf(divisor, 999)
+  const divisor = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+  const multipliers = multiplesOf(divisor, maxVal)
   const randomMultiplier = multipliers[Math.floor(Math.random() * multipliers.length)];
   const numerator = divisor * randomMultiplier
   numList = [numerator, divisor]
