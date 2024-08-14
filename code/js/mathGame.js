@@ -5,7 +5,12 @@ const start = document.getElementById("StartButton")
 var radios = document.getElementsByName('math');
 
 //This is from the script js file that takes the radio buttons as input
-const gameType = (localStorage.getItem("mathChoice"));
+const gameType = (sessionStorage.getItem("mathChoice"));
+const minVal = (sessionStorage.getItem("minVal"));
+const maxVal = (sessionStorage.getItem("maxVal"));
+
+document.getElementById("min").innerHTML = `Minimum: ${minVal}`;
+document.getElementById("max").innerHTML = `Maximum: ${maxVal}`;
 
 let numList = [1, 1];
 switch (gameType) {
