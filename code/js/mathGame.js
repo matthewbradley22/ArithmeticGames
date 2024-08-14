@@ -4,8 +4,25 @@ const skip = document.getElementById("SkipButton");
 const start = document.getElementById("StartButton")
 var radios = document.getElementsByName('math');
 
+//This is from the script js file that takes the radio buttons as input
+const gameType = (localStorage.getItem("mathChoice"));
+
 let numList = [1,1];
-question.innerHTML =  "1 + 1";
+switch(gameType){
+  case 'addition':
+    question.innerHTML =  "1 + 1";
+    break
+  case 'subtraction':
+    question.innerHTML =  "1 - 1";
+    break
+  case 'multiplication':
+    question.innerHTML =  "1 * 1";
+    break
+    case 'division':
+      question.innerHTML =  "1/1";
+      break
+}
+
 
 let totRight = document.getElementById("score")
 
