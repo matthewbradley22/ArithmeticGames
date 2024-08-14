@@ -7,20 +7,20 @@ var radios = document.getElementsByName('math');
 //This is from the script js file that takes the radio buttons as input
 const gameType = (localStorage.getItem("mathChoice"));
 
-let numList = [1,1];
-switch(gameType){
+let numList = [1, 1];
+switch (gameType) {
   case 'addition':
-    question.innerHTML =  "1 + 1";
+    question.innerHTML = "1 + 1";
     break
   case 'subtraction':
-    question.innerHTML =  "1 - 1";
+    question.innerHTML = "1 - 1";
     break
   case 'multiplication':
-    question.innerHTML =  "1 * 1";
+    question.innerHTML = "1 * 1";
     break
-    case 'division':
-      question.innerHTML =  "1/1";
-      break
+  case 'division':
+    question.innerHTML = "1/1";
+    break
 }
 
 
@@ -29,18 +29,51 @@ let totRight = document.getElementById("score")
 let counter = 0
 totRight.innerHTML = `Score: ${counter}`
 
-answer.onkeyup = function(){
-  if(answer.value == numList[0] + numList[1]){
-    const nums = makeNumbers()
-    question.innerHTML =  `${nums[0]} + ${nums[1]}`;
-    answer.value = ""
-    counter ++
-    totRight.innerHTML = `Score: ${counter}`
+answer.onkeyup = function () {
+  switch (gameType) {
+    case 'addition':
+      if (answer.value == numList[0] + numList[1]) {
+        const nums = makeNumbers()
+        question.innerHTML = `${nums[0]} + ${nums[1]}`;
+        answer.value = ""
+        counter++
+        totRight.innerHTML = `Score: ${counter}`
+        break
+      }
+    case 'subtraction':
+      if (answer.value == numList[0] - numList[1]) {
+        const nums = makeNumbers()
+        question.innerHTML = `${nums[0]} - ${nums[1]}`;
+        answer.value = ""
+        counter++
+        totRight.innerHTML = `Score: ${counter}`
+        break
+
+      }
+    case 'multiplication':
+      if (answer.value == numList[0] * numList[1]) {
+        const nums = makeNumbers()
+        question.innerHTML = `${nums[0]} * ${nums[1]}`;
+        answer.value = ""
+        counter++
+        totRight.innerHTML = `Score: ${counter}`
+        break
+
+      }
+    case 'division':
+      if (answer.value == numList[0] / numList[1]) {
+        const nums = makeNumbers()
+        question.innerHTML = `${nums[0]} / ${nums[1]}`;
+        answer.value = ""
+        counter++
+        totRight.innerHTML = `Score: ${counter}`
+        break
+
+      }
   }
 }
 
-
-function makeNumbers(){
+function makeNumbers() {
   const options = [10, 100, 1000];
   const multiplier1 = Math.floor(Math.random() * options.length);
   const multiplier2 = Math.floor(Math.random() * options.length);
@@ -51,28 +84,28 @@ function makeNumbers(){
   return numArray
 }
 
-skip.onclick = function(){
+skip.onclick = function () {
   const nums = makeNumbers()
-  question.innerHTML =  `${nums[0]} + ${nums[1]}`;
-  counter --
-    totRight.innerHTML = `Score: ${counter}`
+  question.innerHTML = `${nums[0]} + ${nums[1]}`;
+  counter--
+  totRight.innerHTML = `Score: ${counter}`
   answer.value = ""
 }
 
-start.onclick = function(){
+start.onclick = function () {
   let min = 2;
   let sec = 0;
-  setInterval(function(){
+  setInterval(function () {
     let time = document.getElementById("time")
     time.innerHTML = `${min}:${sec}`
-    if(min == 0 && sec == 0){
+    if (min == 0 && sec == 0) {
       time.innerHTML = `Game over`
     }
-    else if(sec == 0){
+    else if (sec == 0) {
       min--
       sec = 59
     }
-    else{
+    else {
       sec--
     }
   }, 1000)
