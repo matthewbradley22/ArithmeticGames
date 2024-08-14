@@ -62,7 +62,7 @@ answer.onkeyup = function () {
       }
     case 'division':
       if (answer.value == numList[0] / numList[1]) {
-        const nums = makeNumbers()
+        const nums = makeNumbersDivision()
         question.innerHTML = `${nums[0]} / ${nums[1]}`;
         answer.value = ""
         counter++
@@ -84,9 +84,40 @@ function makeNumbers() {
   return numArray
 }
 
+function multiplesOf(factor, max) {
+  highest = Math.floor(max / factor);
+  allFactors = Array(highest).fill(1);
+  allFactors = Array(highest).fill().map((element, index) => index + 1);
+  return allFactors
+}
+function makeNumbersDivision() {
+  const options = [10, 100]
+  const multiplier1 = Math.floor(Math.random() * options.length);
+  const divisor = Math.floor(Math.random() * options[multiplier1]);
+  const multipliers = multiplesOf(divisor, 999)
+  const randomMultiplier = multipliers[Math.floor(Math.random() * multipliers.length)];
+  const numerator = divisor * randomMultiplier
+  numList = [numerator, divisor]
+  return numList
+}
+
 skip.onclick = function () {
-  const nums = makeNumbers()
-  question.innerHTML = `${nums[0]} + ${nums[1]}`;
+  let nums = makeNumbers()
+  switch (gameType) {
+    case 'addition':
+      question.innerHTML = `${nums[0]} + ${nums[1]}`;
+      break
+    case 'subtraction':
+      question.innerHTML = `${nums[0]} - ${nums[1]}`;
+      break
+    case 'multiplication':
+      question.innerHTML = `${nums[0]} * ${nums[1]}`;
+      break
+    case 'division':
+      let numDivs = makeNumbersDivision()
+      question.innerHTML = `${numDivs[0]} / ${numDivs[1]}`;
+      break
+  }
   counter--
   totRight.innerHTML = `Score: ${counter}`
   answer.value = ""
@@ -97,12 +128,12 @@ start.onclick = function () {
   let sec = 0;
   setInterval(function () {
     let time = document.getElementById("time")
-    if(sec > 9){
+    if (sec > 9) {
       time.innerHTML = `${min}:${sec}`
-    }else if(sec > 0){
+    } else if (sec > 0) {
       time.innerHTML = `${min}:0${sec}`
-    }else{
-       time.innerHTML = `${min}:${sec}0`
+    } else {
+      time.innerHTML = `${min}:${sec}0`
     }
     if (min == 0 && sec == 0) {
       time.innerHTML = `Game over`
