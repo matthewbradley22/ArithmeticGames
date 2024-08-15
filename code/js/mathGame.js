@@ -14,18 +14,26 @@ document.getElementById("max").innerHTML = `Maximum: ${maxVal}`;
 
 let numList = [1, 1];
 switch (gameType) {
-  case 'addition':
-    question.innerHTML = "1 + 1";
+  case 'addition': {
+    const nums = makeNumbers()
+    question.innerHTML = `${nums[0]} + ${nums[1]}`;
     break
-  case 'subtraction':
-    question.innerHTML = "1 - 1";
+  }
+  case 'subtraction': {
+    const nums = makeNumbers()
+    question.innerHTML = `${nums[0]} - ${nums[1]}`;
     break
-  case 'multiplication':
-    question.innerHTML = "1 * 1";
+  }
+  case 'multiplication': {
+    const nums = makeNumbers()
+    question.innerHTML = `${nums[0]} * ${nums[1]}`;
     break
-  case 'division':
-    question.innerHTML = "1/1";
+  }
+  case 'division': {
+    const nums = makeNumbersDivision()
+    question.innerHTML = `${nums[0]} / ${nums[1]}`;
     break
+  }
 }
 
 
@@ -94,7 +102,7 @@ function multiplesOf(factor, max) {
 }
 function makeNumbersDivision() {
   //Max val/2 to prevent a lot of high numbers over themselves
-  const divisor = Math.floor(Math.random() * (Math.floor(maxVal/2) - minVal + 1)) + minVal;
+  const divisor = Math.floor(Math.random() * (Math.floor(maxVal / 2) - minVal + 1)) + minVal;
   const multipliers = multiplesOf(divisor, maxVal)
   const randomMultiplier = multipliers[Math.floor(Math.random() * multipliers.length)];
   const numerator = divisor * randomMultiplier
