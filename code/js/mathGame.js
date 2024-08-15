@@ -1,7 +1,6 @@
 let question = document.getElementById('Question');
 let answer = document.getElementById('answer');
 const skip = document.getElementById("SkipButton");
-const start = document.getElementById("StartButton")
 var radios = document.getElementsByName('math');
 
 //This is from the script js file that takes the radio buttons as input
@@ -124,7 +123,7 @@ skip.onclick = function () {
   answer.value = ""
 }
 
-start.onclick = function () {
+window.onload = function () {
   let min = 2;
   let sec = 0;
   setInterval(function () {
