@@ -8,6 +8,7 @@ let finalOutput = document.getElementById("congrats")
 const gameType = (sessionStorage.getItem("mathChoice"));
 const minVal = Number((sessionStorage.getItem("minVal")));
 const maxVal = Number((sessionStorage.getItem("maxVal")));
+const minutes = Number((sessionStorage.getItem("minuteCount")));
 
 document.getElementById("min").innerHTML = `Minimum: ${minVal}`;
 document.getElementById("max").innerHTML = `Maximum: ${maxVal}`;
@@ -133,10 +134,11 @@ skip.onclick = function () {
 }
 
 window.onload = function () {
-  let min = 2;
+  let min = minutes;
   let sec = 0;
+  let time = document.getElementById("time")
+  time.innerHTML = `${min}:${sec}0`
   setInterval(function () {
-    let time = document.getElementById("time")
     if (sec > 9) {
       time.innerHTML = `${min}:${sec}`
     } else if (sec > 0) {
@@ -148,7 +150,7 @@ window.onload = function () {
       time.innerHTML = `Game over`
       answer.disabled = true
       skip.disabled = true
-      finalOutput.innerHTML = `Good Job, you scored ${totRight.innerHTML} points`
+      finalOutput.innerHTML = `Good Job, you scored ${counter} points`
     }
     else if (sec == 0) {
       min--
