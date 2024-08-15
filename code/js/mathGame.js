@@ -148,7 +148,7 @@ window.onload = function () {
       time.innerHTML = `Game over`
       answer.disabled = true
       skip.disabled = true
-      finalOutput.innerHTML = `Good Job, you scored ${totRigh.innerHTML} points`
+      finalOutput.innerHTML = `Good Job, you scored ${totRight.innerHTML} points`
     }
     else if (sec == 0) {
       min--
