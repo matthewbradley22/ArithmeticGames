@@ -2,6 +2,7 @@ let question = document.getElementById('Question');
 let answer = document.getElementById('answer');
 const skip = document.getElementById("SkipButton");
 var radios = document.getElementsByName('math');
+let finalOutput = document.getElementById("congrats")
 
 //This is from the script js file that takes the radio buttons as input
 const gameType = (sessionStorage.getItem("mathChoice"));
@@ -137,6 +138,9 @@ window.onload = function () {
     }
     if (min == 0 && sec == 0) {
       time.innerHTML = `Game over`
+      answer.disabled = true
+      skip.disabled = true
+      finalOutput.innerHTML = `Good Job, you scored ${totRigh.innerHTML} points`
     }
     else if (sec == 0) {
       min--
