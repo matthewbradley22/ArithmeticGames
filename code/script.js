@@ -2,6 +2,7 @@ const submit = document.getElementById("submit");
 document.getElementById("min").defaultValue = "0";
 document.getElementById("max").defaultValue = "1000";
 document.getElementById("minutes").defaultValue = "2";
+document.getElementById("seconds").defaultValue = "00";
 
 submit.onclick = function(){
     let radioChoice = document.querySelector('input[name="math"]:checked').value;
@@ -15,5 +16,8 @@ submit.onclick = function(){
 
     let minuteCount = document.getElementById("minutes").value;
     sessionStorage.setItem("minuteCount", minuteCount);
+
+    let secCount = document.getElementById("seconds").value;
+    sessionStorage.setItem("secCount", secCount);
   }
 
