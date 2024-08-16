@@ -4,8 +4,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <meta http-equiv="refresh" content="0; url= https://matthewbradley22.github.io/code/index.html">
+  <title>Math games</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
+
+<body>
+  <header>
+    <h1>Math Games</h1>
+  </header>
+  <main>
+    <section class="decisionPanel">
+      <fieldset class="radios">
+        <legend>Select:</legend>
+        <input type="radio" id="addition" name="math" value="addition" checked/>
+        <label for="addition">Addition</label>
+
+        <input type="radio" id="subtraction" name="math" value="subtraction" />
+        <label for="addition">Subtraction</label>
+
+        <input type="radio" id="multiplication" name="math" value="multiplication" />
+        <label for="addition">Multiplication</label>
+
+        <input type="radio" id="division" name="math" value="division" />
+        <label for="addition">Division</label>
+      </fieldset>
+
+      <div class="inputs">
+          <label for="min">Minimum Value</label>
+          <input type="number" , id="min"/>
+          <label for="max">Maximum Value</label>
+          <input type="number" , id="max"/>
+          <label for="minutes">Minutes</label>
+          <input type="number" id = "minutes"/>
+          <label for="seconds">Seconds</label>
+          <input type="number" id = "seconds"/>
+      </div>
+      <a href="code/MathPages/MathTemplate.html"><button type="button" id="submit">Submit</button></a>
+    </section>
+  </main>
+</body>
+
 </html>
-
-
