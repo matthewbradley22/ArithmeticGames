@@ -45,48 +45,41 @@ let counter = 0
 totRight.innerHTML = `Score: ${counter}`
 
 answer.onkeyup = function () {
-  switch (gameType) {
-    case 'addition':
-      if (answer.value == numList[0] + numList[1]) {
-        const nums = makeNumbers()
-        question.innerHTML = `${nums[0]} + ${nums[1]}`;
-        answer.value = ""
-        counter++
-        totRight.innerHTML = `Score: ${counter}`
-        break
-      }
-    case 'subtraction':
-      if (answer.value == numList[0] - numList[1]) {
-        const nums = makeNumbers()
-        question.innerHTML = `${nums[0]} - ${nums[1]}`;
-        answer.value = ""
-        counter++
-        totRight.innerHTML = `Score: ${counter}`
-        break
-
-      }
-    case 'multiplication':
-      if (answer.value == numList[0] * numList[1]) {
-        const nums = makeNumbers()
-        question.innerHTML = `${nums[0]} * ${nums[1]}`;
-        answer.value = ""
-        counter++
-        totRight.innerHTML = `Score: ${counter}`
-        break
-
-      }
-    case 'division':
-      if (answer.value == numList[0] / numList[1]) {
-        const nums = makeNumbersDivision()
-        question.innerHTML = `${nums[0]} / ${nums[1]}`;
-        answer.value = ""
-        counter++
-        totRight.innerHTML = `Score: ${counter}`
-        break
-
-      }
+  if(gameType == 'addition') {
+    if (answer.value == numList[0] + numList[1]) {
+      const nums = makeNumbers()
+      question.innerHTML = `${nums[0]} + ${nums[1]}`;
+      answer.value = ""
+      counter++
+      totRight.innerHTML = `Score: ${counter}`
+    }
+  }else if(gameType == 'subtraction'){
+    if (answer.value == numList[0] - numList[1]) {
+      const nums = makeNumbers()
+      question.innerHTML = `${nums[0]} - ${nums[1]}`;
+      answer.value = ""
+      counter++
+      totRight.innerHTML = `Score: ${counter}`
+    }
+  }else if(gameType == 'multiplication'){
+    if (answer.value == numList[0] * numList[1]) {
+      const nums = makeNumbers()
+      question.innerHTML = `${nums[0]} * ${nums[1]}`;
+      answer.value = ""
+      counter++
+      totRight.innerHTML = `Score: ${counter}`
+    }
+  }else if(gameType == 'division'){
+    if (answer.value == numList[0] / numList[1]) {
+      const nums = makeNumbersDivision()
+      question.innerHTML = `${nums[0]} / ${nums[1]}`;
+      answer.value = ""
+      counter++
+      totRight.innerHTML = `Score: ${counter}`
+    }
   }
-}
+     
+  }
 
 function makeNumbers() {
   const num1 = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
@@ -157,7 +150,7 @@ window.onload = function () {
       time.innerHTML = `Game over`
       answer.disabled = true
       skip.disabled = true
-      finalOutput.innerHTML = `Good Job, you scored ${counter} points`
+      finalOutput.innerHTML = `Good job! you scored ${counter} points`
     }
     else if (sec == 0) {
       min--
